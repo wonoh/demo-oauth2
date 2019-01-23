@@ -23,6 +23,7 @@ public class UserService implements UserDetailsService {
 
     @Autowired
     PasswordEncoder passwordEncoder;
+
     public List<User> findAll() {
         return userRepository.findAll();
     }
@@ -35,10 +36,11 @@ public class UserService implements UserDetailsService {
     public void delete(Long id) {
         userRepository.deleteById(id);
     }
+
     @PostConstruct
-    public void init(){
+    public void init() {
         User wonoh = userRepository.findByUsername("wonoh");
-        if(wonoh == null){
+        if (wonoh == null) {
             User user = new User();
             user.setUsername("wonoh");
             user.setPassword("pass");
@@ -50,7 +52,7 @@ public class UserService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = userRepository.findByUsername(username);
-        return new org.springframework.security.core.userdetails.User(user.getUsername(),user.getPassword(),getAuthorities());
+        return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(), getAuthorities());
     }
 
     private Collection<? extends GrantedAuthority> getAuthorities() {

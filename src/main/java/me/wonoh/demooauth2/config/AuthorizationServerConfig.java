@@ -38,9 +38,9 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
                         "authorization_code",
                         "refresh_token",
                         "implicit")
-                .scopes("read","write","trust")
-                .accessTokenValiditySeconds(1*60*60)
-                .refreshTokenValiditySeconds(6*60*60);
+                .scopes("read", "write", "trust")
+                .accessTokenValiditySeconds(1 * 60 * 60)
+                .refreshTokenValiditySeconds(6 * 60 * 60);
     }
 
     @Override

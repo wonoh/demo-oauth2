@@ -16,10 +16,10 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
         http
                 .anonymous().disable()
                 .authorizeRequests()
-                    .antMatchers("/users/**").authenticated()
-                    .and()
+                .antMatchers("/users/**").authenticated()
+                .and()
                 .exceptionHandling()
-                    .accessDeniedHandler(new OAuth2AccessDeniedHandler());
+                .accessDeniedHandler(new OAuth2AccessDeniedHandler());
 
     }
 
